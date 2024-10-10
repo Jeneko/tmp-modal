@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="modal.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="showModalBtn" onclick="showModal('modalDialog')">Show Modal</button>
+  <dialog id="modalDialog" class="modal-dialog">
+    <div class="modal-dialog__wrapper">
+      <div class="modal-contract">
+        <div class="modal-contract__left">
+          <div class="modal-contract__text">
+            <p>
+              Теперь Вы можете заключить договор на обслуживание самостоятельно!
+            </p>
+            <p>
+              Никакого ожидания, всего в несколько кликов!
+            </p>
+          </div>
+          <a class="modal-contract__btn" href="https://ya.ru" target="_blank">Перейти к&nbsp;заключению договора</a>
+        </div>
+        <div class="modal-contract__right">
+          <img class="modal-contract__image" src="images/modal-contract-img.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <button class="modal-dialog__close" onclick="hideModal('modalDialog')">
+      x
+    </button>
+  </dialog>
+  <script>
+    const showModalBtn = document.getElementById('showModalBtn');
+
+    // (function () {
+    //   const TIMEOUT = 5_000;
+    //   const isPopupShown = sessionStorage.getItem('popup_shown');
+
+    //   if (isPopupShown) return;
+
+    //   let timerId = setTimer();
+
+    //   document.addEventListener('mousemove', resetTimer);
+    //   document.addEventListener('keypress', resetTimer);
+    //   document.addEventListener('scroll', resetTimer);
+
+    //   function setTimer() {
+    //     return setTimeout(() => {
+    //       document.removeEventListener('mousemove', resetTimer);
+    //       document.removeEventListener('keypress', resetTimer);
+    //       alert(`${TIMEOUT}ms is out`);
+    //       sessionStorage.setItem('popup_shown', Date.now());
+    //     }, TIMEOUT);
+    //   }
+
+    //   function resetTimer(event) {
+    //     clearTimeout(timerId);
+    //     timerId = setTimer();
+    //   }
+    // })();
+  </script>
+</body>
+
+</html>
