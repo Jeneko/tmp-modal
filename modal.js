@@ -4,24 +4,31 @@ function initModals() {
   const allModalDialog = document.querySelectorAll('.modal-dialog');
 
   allModalDialog.forEach(modalDialog => {
-    modalDialog.addEventListener('click', (e) => {
-      if (e.target === modalDialog) {
-        hideModal(modalDialog.id);
+    modalDialog.addEventListener('animationend', () => {
+      if (modalDialog.classList.contains('opening')) {
+        modalDialog.classList.remove('opening');
+        modalDialog.classList.add('open');
+      }
+
+      if (modalDialog.classList.contains('closing')) {
+        modalDialog.classList.remove('closing', 'open');
       }
     });
   });
 }
 
 function showModal(id) {
-  document.body.style.overflow = 'hidden';
-  document.getElementById(id)?.showModal();
+  const modalDialog = document.getElementById(id);
+
+  if (!modalDialog) return;
+
+  modalDialog.classList.add('opening');
 }
 
 function hideModal(id) {
   const modalDialog = document.getElementById(id);
-  
+
   if (!modalDialog) return;
-  
-  document.body.style.overflow = '';
-  modalDialog?.close();
+
+  modalDialog.classList.add('closing');
 }
